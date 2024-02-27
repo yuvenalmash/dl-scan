@@ -41,7 +41,6 @@
 // });
 
 import { useEffect, useState } from "react";
-import imageToBase64 from "@/utils/imageToBase64";
 
 export default function Playground() {
   const [image, setImage] = useState(null);
