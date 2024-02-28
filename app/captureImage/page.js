@@ -30,6 +30,12 @@ export default function CaptureImage() {
     toggleCamera();
   };
 
+  const videoConstraints = {
+    width: 1280,
+    height: 720,
+    facingMode: "user",
+  };
+
   return (
     <div className="flex flex-col items-center gap-4">
       {cameraOn ? (
@@ -39,7 +45,7 @@ export default function CaptureImage() {
               audio={false}
               ref={webcamRef}
               screenshotFormat="image/jpeg"
-              width={600}
+              videoConstraints={videoConstraints}
             />
           </div>
           <div className="flex gap-4">
