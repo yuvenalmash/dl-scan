@@ -4,7 +4,6 @@ export default function Navbar() {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Capture Image", href: "/captureImage" },
-    { label: "Template", href: "/template" },
   ];
 
   return (
