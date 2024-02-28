@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Webcam from "react-webcam";
 import Link from "next/link";
 
@@ -8,9 +8,15 @@ export default function CaptureImage() {
   const [image, setImage] = useState(null);
   const [cameraOn, setCameraOn] = useState(false);
 
+  useEffect(() => {
+    const image = localStorage.getItem("image");
+    setImage(image);
+  }, []);
+
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     setImage(imageSrc);
+    localStorage.setItem("image", imageSrc);
     toggleCamera();
   };
 
@@ -20,7 +26,14 @@ export default function CaptureImage() {
 
   const retake = () => {
     setImage(null);
+    localStorage.removeItem("image");
     toggleCamera();
+  };
+
+  const videoConstraints = {
+    width: 1280,
+    height: 720,
+    facingMode: "user",
   };
 
   return (
@@ -32,7 +45,7 @@ export default function CaptureImage() {
               audio={false}
               ref={webcamRef}
               screenshotFormat="image/jpeg"
-              width={600}
+              videoConstraints={videoConstraints}
             />
           </div>
           <div className="flex gap-4">

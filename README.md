@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<a name="readme-top"></a>
 
-## Getting Started
+<div align="center">
+  <h3><b>DL SCAN</b></h3>
+</div>
 
-First, run the development server:
+<!-- TABLE OF CONTENTS -->
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 📗 Table of Contents
+
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Install](#install)
+  - [Usage](#usage)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [📝 License](#license)
+
+<!-- PROJECT DESCRIPTION -->
+
+# 📖 DL SCAN <a name="about-project"></a>
+
+**DL Scan** is a web application that allows users to scan and store their driver's license information. The application will use OCR to extract the information from the driver's license and display it. The application works fully on the client side.
+
+## 🛠 Built With <a name="built-with"></a>
+
+### Tech Stack <a name="tech-stack"></a>
+
+The following technologies were used in the development of this project:
+
+- **React (Next.js)** for the user interface.
+- **Python** for the image processing with the modules below:
+  - **OpenCV** for image processing.
+  - **Tesseract** for OCR.
+
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+
+- **Capture Image**: Users can capture an image of their driver's license using their device's camera.
+- **Extract Information**: The application will use OCR to extract the information from the driver's license.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
+
+### Setup
+
+Clone this repository to your desired folder:
+
+```sh
+  git clone git@github.com:yuvenalmash/dl-scan.git
+  cd dl-scan
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Install node modules with:
+  
+  ```sh
+    npm install
+  ```
+Install python modules with:
+  
+  ```sh
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+  ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Usage
 
-## Learn More
+To run the project, execute the following command:
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+  npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<!-- AUTHORS -->
 
-## Deploy on Vercel
+## 👥 Authors <a name="authors"></a>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+👤 **Yuvenal Njoroge**
+- GitHub: [@yuvenalmash](https://github.com/yuvenalmash)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+The extract part of the application is incomplete. The following features are planned for the future:
+
+- [ ] **Use pattern matching to extract information from the driver's license.**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
