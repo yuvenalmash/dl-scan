@@ -5,7 +5,6 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "Capture Image", href: "/captureImage" },
     { label: "Template", href: "/template" },
-    { label: "Playground", href: "/playground" },
   ];
 
   return (
