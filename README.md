@@ -33,6 +33,7 @@
 The following technologies were used in the development of this project:
 
 - **React (Next.js)** for the user interface.
+  - **React-webcam** for capturing images.
 - **Python** for the image processing with the modules below:
   - **OpenCV** for image processing.
   - **Tesseract** for OCR.
@@ -43,6 +44,7 @@ The following technologies were used in the development of this project:
 
 - **Capture Image**: Users can capture an image of their driver's license using their device's camera.
 - **Extract Information**: The application will use OCR to extract the information from the driver's license.
+- **Display Information**: The extracted information will be displayed in tabular form.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,7 +103,7 @@ To run the project, execute the following command:
 
 The extract part of the application is incomplete. The following features are planned for the future:
 
-- [ ] **Use pattern matching to extract information from the driver's license.**
+- [ ] **Add an adaptable image processing to prepare for OCR**.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -13,7 +13,8 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
-    --primary-color: #39FF14;
+    --primary-color: #39ff14;
+    --secondary-color: #ff6123;
   }
 }
 
@@ -25,7 +26,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-  
+
   min-height: 100vh;
 }
 
@@ -36,10 +37,47 @@ body {
 }
 
 .btn {
-  background-color: rgb(36, 36, 36);
+  background-color: rgb(3, 37, 3);
   border: solid 1px var(--primary-color);
   padding: 10px 20px;
   border-radius: 5px;
   color: var(--primary-color);
   font-weight: bold;
+}
+
+.btn:hover {
+  background-color: var(--primary-color);
+  color: rgb(3, 37, 3);
+  border: solid 1px rgb(3, 37, 3);
+}
+
+.btn_secondary {
+  background-color: rgb(87, 30, 8);
+  border: solid 1px var(--secondary-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.btn_secondary:hover {
+  background-color: var(--secondary-color);
+  color: rgb(87, 30, 8);
+  border: solid 1px rgb(87, 30, 8);
+}
+
+/* spinner.css */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
