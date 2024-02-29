@@ -5,6 +5,7 @@ from io import BytesIO
 import base64
 import numpy as np
 import pytesseract
+import re
 
 # convert the base64 string to an image
 def base64_to_image(base64_string):
@@ -64,25 +65,48 @@ def match_template(image, template):
 
 # OCR with tesseract
 def ocr(image):
-    custom_config = r'--oem 3 --psm 6'
-    return pytesseract.image_to_string(image, config=custom_config)
+    # custom_config = r'--oem 3 --psm 6'
+    return pytesseract.image_to_string(image)
 
 # save the image
 def save_image(image, path):
     cv2.imwrite(path, image)
 
+# read image from file
+def read_image(path):
+    return cv2.imread(path)
+
+# base64String = sys.argv[1]
+# image = base64_to_image(base64String)
 
 
-base64String = sys.argv[1]
-image = base64_to_image(base64String)
+
+imagePath = sys.argv[1]
+image = read_image(imagePath)
 
 # Preprocess Image
 gray = get_grayscale(image)
-output = canny(gray)
+output = thresholding(gray)
 
 save_image(output, 'test.jpeg')
 
 text = ocr(output)
 
-sys.argv.append(text)
-print(sys.argv[2])
+# Define the regex pattern to extract details
+first_name_pattern = r'FN([A-Z]+)'
+last_name_pattern = r'tn\s([A-Z]+)'
+dates_pattern = r'(\d{2}/\d{2}/\d{4})'
+
+# Find the matches
+first_name = re.search(first_name_pattern, text)
+last_name = re.search(last_name_pattern, text)
+dates = re.findall(dates_pattern, text) # expiry = dates[0], issuance = dates[-1]
+
+# Extract the details
+first_name = first_name.group(1) if first_name else ''
+last_name = last_name.group(1) if last_name else ''
+issuance_date = dates[-1] if dates else ''
+expiry_date = dates[0] if dates else ''
+
+# print the details
+print(f'{first_name} {last_name} {issuance_date} {expiry_date}')
